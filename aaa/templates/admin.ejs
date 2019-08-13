@@ -1,0 +1,30 @@
+<%include admin-index.ejs%>
+<div class="container-fluid">
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>title</th>
+            <th>summary</th>
+            <th>content</th>
+            <th>postTime</th>
+            <th>href</th>
+            <th>操作</th>
+        </tr>
+        <% for(var i = 0; i < data.length; i++){ %>
+        <tr>
+            <td><%= data[i].id %></td>
+            <td><%= data[i].title %></td>
+            <td><%= data[i].summary.substring(0,30) %></td>
+            <td class="con"><%=data[i].content.substring(0, 60) %></td>
+            <td><%= data[i].postTime %></td>
+            <td><%= data[i].href %></td>
+            <td>
+                <a href="/admin/delete?id=<%=data[i].id%>">删除 | </a>
+                <a href="/admin/modify?id=<%=data[i].id%>">修改</a>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+</div>
+<%include admin-footer.ejs%>

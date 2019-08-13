@@ -1,0 +1,50 @@
+<% include admin-index.ejs %>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="title">title</label>
+            <input type="text" class="form-control" id="title">
+        </div>
+        <div class="form-group">
+            <label for="summary">summary</label>
+            <input type="text" class="form-control" id="summary">
+        </div>
+        <div class="form-group">
+            <label for="content">content</label>
+            <input type="text" class="form-control" id="content">
+        </div>
+        <div class="form-group">
+            <label for="href">href</label>
+            <input type="text" class="form-control" id="href">
+        </div>
+        <a class="btn btn-default">Submit</a>
+    </form>
+</div>
+<script>
+  $(function () {
+    $('.btn').click(function () {
+      if ($('#title').val() === '' || $('#href').val() === '') {
+        alert('不能为空');
+      } else {
+        $.ajax({
+          url: '/admin/adds',
+          data: {
+            title: $('#title').val(),
+            href: $('#href').val(),
+            summary: $('#summary').val(),
+            content: $('#content').val()
+          },
+          success: function (res) {
+            if (res.ok) {
+              alert('添加成功!');
+              setTimeout(function () {
+                window.location.reload();
+              }, 300);
+            }
+          }
+        });
+      }
+    })
+  });
+</script>
+<% include admin-footer.ejs %>

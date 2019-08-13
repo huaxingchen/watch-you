@@ -1,0 +1,16 @@
+模板引擎:
+    jade
+    ejs
+
+----------------------------------
+localhost:8090/index.html  ====> index.html
+
+localhost:8090/article?id=4
+
+localhost:8090/  => index.ejs
+localhost:8090/article => conText.ejs
+
+***** use和get的先后关系.
+
+next:
+    下一个, 下一步
